@@ -2,3 +2,14 @@
   font-family: sans-serif;
   text-align: center;
 }
+h1 {
+  background-color: blueviolet;
+  border-radius: 10px;
+}
+input {
+  width: 70%;
+  margin-bottom: 20px;
+}
+p {
+  background-color: cornsilk;
+}
