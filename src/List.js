@@ -29,18 +29,34 @@ class List extends Component {
   searchName = (el) => {
     this.setState({ inp: el.target.value });
   };
+  searchDep = (el) => {
+    this.setState({ inp: el.target.value });
+  };
 
   render() {
     let { inp } = this.state;
     return (
       <div>
-        <input type="text" onChange={this.searchName} /> <br />
+        <input type="text" onChange={this.searchName} placeholder="name" />{" "}
+        <br />
+        <input
+          type="text"
+          onChange={this.searchDep}
+          placeholder="department"
+        />{" "}
+        <br />
         {this.state.employees
           .filter(function fnd(el) {
-            return el.name.toLowerCase().includes(inp.toLowerCase());
+            let x = el.name.toLowerCase().includes(inp.toLowerCase());
+            let y = el.department.toLowerCase().includes(inp.toLowerCase());
+            return x ? x : y;
           })
           .map(function (el, index) {
-            return <p key={index}>{el.name} </p>;
+            return (
+              <p key={index}>
+                {el.name} works at {el.department}{" "}
+              </p>
+            );
           })}
         ;
       </div>
